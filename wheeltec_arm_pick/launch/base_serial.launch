@@ -1,0 +1,18 @@
+<launch>
+  <!--设置一些静态TF坐标关系-->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_link" args="0 0 0 0 0 0 base_footprint base_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_to_gyro" args="0 0 0 0 0 0 base_footprint gyro_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_to_camera" args="0.118 0 0.25 0 0 0  base_footprint camera_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_to_arm" args="0.13 0 0.05 0 0 0  base_footprint arm_base_link 100" />
+  <!--打开节点wheeltec_robot，初始化串口等操作-->
+  <node pkg="wheeltec_arm_pick" type="wheeltec_robot_and_arm_node" name="wheeltec_robot_and_arm_node" output="screen" respawn="true">
+    <param name="usart_port_name"    type="string" value="/dev/wheeltec_controller"/>  
+    <param name="serial_baud_rate"   type="int"    value="115200"/>
+    <param name="robot_frame_id"     type="string" value="base_footprint"/>
+    <param name="smoother_cmd_vel"   type="string" value="smoother_cmd_vel"/> 
+    <param name="product_number"   type="int"    value="0"/>
+  </node>
+</launch>
+
+
+

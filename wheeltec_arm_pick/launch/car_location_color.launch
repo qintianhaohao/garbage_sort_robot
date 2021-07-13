@@ -1,0 +1,12 @@
+<launch>
+  <node name='car_location_color' pkg="wheeltec_arm_pick" type="car_location_color" output="screen">
+  	<param name="x_p" value="0.35"/>   <!-- 色块定位时x轴方向运动的pid参数  -->
+  	<param name="x_i" value="0.0"/> 
+  	<param name="x_d" value="0.02"/>
+  	<param name="y_p" value="0.35"/>   <!-- 色块定位时y轴方向运动的pid参数  -->
+  	<param name="y_i" value="0.0"/> 
+  	<param name="y_d" value="0.02"/>
+  	<param name="color_location_x" value="-0.21"/>  <!-- 色块定位的位置  -->
+  	<param name="color_location_y" value="-0.038"/>
+  </node>
+</launch>
